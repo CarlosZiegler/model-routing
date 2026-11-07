@@ -1,0 +1,22 @@
+{
+  "kind": "refactor_multifile",
+  "kind_confidence": 0.94,
+  "kind_probabilities": {
+    "bulk_extraction": 0,
+    "mechanical_edit": 0,
+    "feature_frozen": 0.04,
+    "refactor_multifile": 0.95,
+    "debug_hard": 0,
+    "planning_spec": 0.01,
+    "review_frozen": 0,
+    "research_recent": 0,
+    "chat_qa": 0
+  },
+  "risk": 0.35,
+  "ctx_size": "mid",
+  "needs_recent_facts": 0.29,
+  "cross_vendor_review_recommended": 0.88,
+  "estimated_steps": ">20",
+  "touches_secrets": 0.41,
+  "model": "jev-1.14.0"
+}

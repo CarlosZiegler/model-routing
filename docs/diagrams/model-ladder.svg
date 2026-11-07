@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 960 484" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="model-ladder-title model-ladder-desc" id="model-ladder-root">
+        <title id="model-ladder-title">The model ladder</title>
+        <desc id="model-ladder-desc">Five Claude rungs from Haiku 5.5 at the bottom to Opus 5.5 at xhigh effort on the main account at the top, each with its typical work and approximate cost per task, plus the overflow order Codex, then Antigravity, then Grok when the team seats are full.</desc>
+        <defs>
+      <style>@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500;600&amp;family=Noto+Serif:ital@0;1&amp;family=Noto+Sans+KR:wght@400;500;600&amp;family=Noto+Serif+KR:wght@400&amp;family=Noto+Sans+TC:wght@400;500;600&amp;family=Noto+Serif+TC:wght@400&amp;display=swap');
+      #model-ladder-root { --color-paper: #f5f5f5; --color-ink: #2d3142; --color-muted: #4f5d75; --color-accent: #eb6c36; --font-sans: 'Geist', 'Helvetica Neue', Arial, sans-serif; --font-serif: 'Instrument Serif', Georgia, serif; --font-mono: 'Geist Mono', ui-monospace, Menlo, Consolas, monospace; }
+      #model-ladder-root { font-family: var(--font-sans); color: var(--color-ink); }
+      #model-ladder-root .diagram-container { width: 100%; overflow-x: auto; }
+      #model-ladder-root .diagram-container { overflow-x: visible; }</style>
+          <marker id="model-ladder-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#4f5d75"/></marker>
+        </defs>
+
+        <rect width="100%" height="100%" fill="#f5f5f5"/>
+
+        <!-- Direction column (left margin) -->
+        <text x="48" y="52" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, Menlo, Consolas, monospace" letter-spacing="0.18em">MORE CAPABLE</text>
+        <line x1="96" y1="340" x2="96" y2="72" stroke="#2d3142" stroke-opacity="0.30" stroke-width="1"/>
+        <polygon points="92,72 100,72 96,64" fill="#4f5d75"/>
+        <text x="48" y="364" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, Menlo, Consolas, monospace" letter-spacing="0.18em">CHEAPER</text>
+
+        <!-- Overflow connectors (drawn before boxes) -->
+        <line x1="604" y1="124" x2="612" y2="124" stroke="#4f5d75" stroke-width="1"/>
+        <line x1="612" y1="124" x2="612" y2="340" stroke="#4f5d75" stroke-width="1"/>
+        <line x1="604" y1="340" x2="612" y2="340" stroke="#4f5d75" stroke-width="1"/>
+        <path d="M 612,232 H 628 Q 636,232 636,224 V 108 Q 636,100 644,100 H 671" fill="none" stroke="#4f5d75" stroke-width="1" stroke-dasharray="5,4" marker-end="url(#model-ladder-arrow)"/>
+        <line x1="792" y1="136" x2="792" y2="167" stroke="#4f5d75" stroke-width="1" stroke-dasharray="5,4" marker-end="url(#model-ladder-arrow)"/>
+        <line x1="792" y1="240" x2="792" y2="271" stroke="#4f5d75" stroke-width="1" stroke-dasharray="5,4" marker-end="url(#model-ladder-arrow)"/>
+
+        <!-- Rungs: white bands, hairline dividers -->
+        <rect x="120" y="64" width="480" height="280" fill="#ffffff"/>
+        <!-- Rung 5 (FOCAL): main account -->
+        <rect x="120" y="64" width="480" height="56" fill="#eb6c36" fill-opacity="0.08"/>
+        <line x1="120" y1="120" x2="600" y2="120" stroke="#2d3142" stroke-opacity="0.12" stroke-width="1"/>
+        <line x1="120" y1="176" x2="600" y2="176" stroke="#2d3142" stroke-opacity="0.12" stroke-width="1"/>
+        <line x1="120" y1="232" x2="600" y2="232" stroke="#2d3142" stroke-opacity="0.12" stroke-width="1"/>
+        <line x1="120" y1="288" x2="600" y2="288" stroke="#2d3142" stroke-opacity="0.12" stroke-width="1"/>
+        <rect x="120" y="64" width="480" height="280" fill="none" stroke="#4f5d75" stroke-width="1"/>
+        <rect x="120" y="64" width="480" height="56" fill="none" stroke="#eb6c36" stroke-width="1.2"/>
+
+        <!-- Rung 5 -->
+        <text x="136" y="88" fill="#eb6c36" font-size="8" font-weight="600" font-family="'Geist Mono', ui-monospace, Menlo, Consolas, monospace" letter-spacing="0.14em">RUNG 5</text>
+        <text x="200" y="89" fill="#2d3142" font-size="14" font-weight="600" font-family="'Geist', 'Helvetica Neue', Arial, sans-serif">Opus 5.5 <tspan fill="#4f5d75">· xhigh</tspan></text>
+        <text x="200" y="106" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, Menlo, Consolas, monospace">plans, specs, final judge</text>
+        <text x="584" y="89" fill="#2d3142" font-size="10" font-family="'Geist Mono', ui-monospace, Menlo, Consolas, monospace" text-anchor="end">~$3.46 / task</text>
+        <text x="584" y="106" fill="#eb6c36" font-size="9" font-family="'Geist Mono', ui-monospace, Menlo, Consolas, monospace" text-anchor="end">main account</text>
+
+        <!-- Rung 4 -->
+        <text x="136" y="144" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, Menlo, Consolas, monospace" letter-spacing="0.14em">RUNG 4</text>
+        <text x="200" y="145" fill="#2d3142" font-size="14" font-weight="600" font-family="'Geist', 'Helvetica Neue', Arial, sans-serif">Opus 5.5 <tspan fill="#4f5d75">· high</tspan></text>
+        <text x="200" y="162" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, Menlo, Consolas, monospace">hard bugs, deep diff review</text>
+        <text x="584" y="145" fill="#2d3142" font-size="10" font-family="'Geist Mono', ui-monospace, Menlo, Consolas, monospace" text-anchor="end">~$1.82 / task</text>
+        <text x="584" y="162" fill="#7a8399" font-size="9" font-family="'Geist Mono', ui-monospace, Menlo, Consolas, monospace" text-anchor="end">team seat</text>
+
+        <!-- Rung 3 -->
+        <text x="136" y="200" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, Menlo, Consolas, monospace" letter-spacing="0.14em">RUNG 3</text>
+        <text x="200" y="201" fill="#2d3142" font-size="14" font-weight="600" font-family="'Geist', 'Helvetica Neue', Arial, sans-serif">Opus 5.5 <tspan fill="#4f5d75">· medium</tspan></text>
+        <text x="200" y="218" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, Menlo, Consolas, monospace">refactors across many files</text>
+        <text x="584" y="201" fill="#2d3142" font-size="10" font-family="'Geist Mono', ui-monospace, Menlo, Consolas, monospace" text-anchor="end">~$1.34 / task</text>
+        <text x="584" y="218" fill="#7a8399" font-size="9" font-family="'Geist Mono', ui-monospace, Menlo, Consolas, monospace" text-anchor="end">team seat</text>
+
+        <!-- Rung 2 -->
+        <text x="136" y="256" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, Menlo, Consolas, monospace" letter-spacing="0.14em">RUNG 2</text>
+        <text x="200" y="257" fill="#2d3142" font-size="14" font-weight="600" font-family="'Geist', 'Helvetica Neue', Arial, sans-serif">Sonnet 5.5 <tspan fill="#4f5d75">· high</tspan></text>
+        <text x="200" y="274" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, Menlo, Consolas, monospace">one feature in 1–2 files</text>
+        <text x="584" y="257" fill="#2d3142" font-size="10" font-family="'Geist Mono', ui-monospace, Menlo, Consolas, monospace" text-anchor="end">~$0.88 / task</text>
+        <text x="584" y="274" fill="#7a8399" font-size="9" font-family="'Geist Mono', ui-monospace, Menlo, Consolas, monospace" text-anchor="end">team seat</text>
+
+        <!-- Rung 1 -->
+        <text x="136" y="312" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, Menlo, Consolas, monospace" letter-spacing="0.14em">RUNG 1</text>
+        <text x="200" y="313" fill="#2d3142" font-size="14" font-weight="600" font-family="'Geist', 'Helvetica Neue', Arial, sans-serif">Haiku 5.5 <tspan fill="#4f5d75">· medium–max</tspan></text>
+        <text x="200" y="330" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, Menlo, Consolas, monospace">bulk, extraction, mechanical edits</text>
+        <text x="584" y="313" fill="#2d3142" font-size="10" font-family="'Geist Mono', ui-monospace, Menlo, Consolas, monospace" text-anchor="end">~$0.05–0.21 / task</text>
+        <text x="584" y="330" fill="#7a8399" font-size="9" font-family="'Geist Mono', ui-monospace, Menlo, Consolas, monospace" text-anchor="end">team seat</text>
+
+        <!-- Overflow column -->
+        <text x="672" y="52" fill="#4f5d75" font-size="7" font-family="'Geist Mono', ui-monospace, Menlo, Consolas, monospace" letter-spacing="0.14em">IF THE TEAM SEATS ARE FULL</text>
+
+        <rect x="672" y="64" width="240" height="72" rx="6" fill="#f5f5f5"/>
+        <rect x="672" y="64" width="240" height="72" rx="6" fill="#2d3142" fill-opacity="0.03" stroke="#2d3142" stroke-opacity="0.30" stroke-width="1"/>
+        <rect x="680" y="72" width="88" height="12" rx="2" fill="none" stroke="#2d3142" stroke-opacity="0.30" stroke-width="0.8"/>
+        <text x="724" y="81" fill="#2d3142" fill-opacity="0.7" font-size="7" font-family="'Geist Mono', ui-monospace, Menlo, Consolas, monospace" text-anchor="middle" letter-spacing="0.08em">1ST · CODEX PRO</text>
+        <text x="792" y="102" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', 'Helvetica Neue', Arial, sans-serif" text-anchor="middle">Codex</text>
+        <text x="792" y="116" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, Menlo, Consolas, monospace" text-anchor="middle">GPT-6.1 Sol · Terra · GPT-6 Astra</text>
+        <text x="792" y="127" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, Menlo, Consolas, monospace" text-anchor="middle">codex exec · no 5h limit</text>
+
+        <rect x="672" y="168" width="240" height="72" rx="6" fill="#f5f5f5"/>
+        <rect x="672" y="168" width="240" height="72" rx="6" fill="#2d3142" fill-opacity="0.03" stroke="#2d3142" stroke-opacity="0.30" stroke-width="1"/>
+        <rect x="680" y="176" width="108" height="12" rx="2" fill="none" stroke="#2d3142" stroke-opacity="0.30" stroke-width="0.8"/>
+        <text x="734" y="185" fill="#2d3142" fill-opacity="0.7" font-size="7" font-family="'Geist Mono', ui-monospace, Menlo, Consolas, monospace" text-anchor="middle" letter-spacing="0.08em">2ND · GOOGLE AI PRO</text>
+        <text x="792" y="206" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', 'Helvetica Neue', Arial, sans-serif" text-anchor="middle">Antigravity</text>
+        <text x="792" y="220" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, Menlo, Consolas, monospace" text-anchor="middle">Gemini 4 Argon · 3.8 Flash</text>
+        <text x="792" y="231" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, Menlo, Consolas, monospace" text-anchor="middle">agy -p · 1,500 requests / day</text>
+
+        <rect x="672" y="272" width="240" height="72" rx="6" fill="#f5f5f5"/>
+        <rect x="672" y="272" width="240" height="72" rx="6" fill="#2d3142" fill-opacity="0.03" stroke="#2d3142" stroke-opacity="0.30" stroke-width="1"/>
+        <rect x="680" y="280" width="116" height="12" rx="2" fill="none" stroke="#2d3142" stroke-opacity="0.30" stroke-width="0.8"/>
+        <text x="738" y="289" fill="#2d3142" fill-opacity="0.7" font-size="7" font-family="'Geist Mono', ui-monospace, Menlo, Consolas, monospace" text-anchor="middle" letter-spacing="0.08em">LAST · X SUBSCRIPTION</text>
+        <text x="792" y="310" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', 'Helvetica Neue', Arial, sans-serif" text-anchor="middle">Grok Build</text>
+        <text x="792" y="324" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, Menlo, Consolas, monospace" text-anchor="middle">grok-4.7</text>
+        <text x="792" y="335" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, Menlo, Consolas, monospace" text-anchor="middle">grok · shared weekly pool</text>
+
+        <!-- Editorial callout (the rule) -->
+        <text x="120" y="392" fill="#2d3142" font-size="14" font-style="italic" font-family="'Instrument Serif', Georgia, serif">Each task runs on the cheapest rung whose verifier can still prove it correct.</text>
+        <text x="120" y="410" fill="#2d3142" font-size="14" font-style="italic" font-family="'Instrument Serif', Georgia, serif">It climbs one rung only after a failed check.</text>
+
+        <!-- Legend strip -->
+        <line x1="48" y1="432" x2="912" y2="432" stroke="#2d3142" stroke-opacity="0.10" stroke-width="0.8"/>
+        <text x="48" y="452" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, Menlo, Consolas, monospace" letter-spacing="0.14em">LEGEND</text>
+        <rect x="120" y="460" width="16" height="10" rx="2" fill="#eb6c36" fill-opacity="0.08" stroke="#eb6c36" stroke-width="1"/>
+        <text x="144" y="469" fill="#4f5d75" font-size="8.5" font-family="'Geist', 'Helvetica Neue', Arial, sans-serif">main account</text>
+        <rect x="240" y="460" width="16" height="10" rx="2" fill="#ffffff" stroke="#4f5d75" stroke-width="1"/>
+        <text x="264" y="469" fill="#4f5d75" font-size="8.5" font-family="'Geist', 'Helvetica Neue', Arial, sans-serif">team seat</text>
+        <rect x="344" y="460" width="16" height="10" rx="2" fill="#2d3142" fill-opacity="0.03" stroke="#2d3142" stroke-opacity="0.30" stroke-width="1"/>
+        <text x="368" y="469" fill="#4f5d75" font-size="8.5" font-family="'Geist', 'Helvetica Neue', Arial, sans-serif">other vendor</text>
+        <line x1="464" y1="465" x2="483" y2="465" stroke="#4f5d75" stroke-width="1" stroke-dasharray="5,4" marker-end="url(#model-ladder-arrow)"/>
+        <text x="492" y="469" fill="#4f5d75" font-size="8.5" font-family="'Geist', 'Helvetica Neue', Arial, sans-serif">overflow order</text>
+        <text x="912" y="469" fill="#7a8399" font-size="7.5" font-family="'Geist Mono', ui-monospace, Menlo, Consolas, monospace" text-anchor="end">$ / task: Artificial Analysis Index v5, order of magnitude</text>
+      </svg>

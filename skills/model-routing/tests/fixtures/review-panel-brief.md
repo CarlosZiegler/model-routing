@@ -1,0 +1,14 @@
+Work only in ~/.claude/skills/model-routing/ (not git; make a copy to <scratchpad>/model-routing.bak2 first). Read SKILL.md, scripts/lanes.ts, route.ts, dispatch.sh, reference-agy-cli.md.
+Goal: replace the single-reviewer default with a review PANEL.
+Evidence to record in SKILL.md (cite both, mark the tweet as an anecdote to be validated by our ledger):
+- Tweet by Jinjing Liang (X, 2026-11-06): same PR, same prompt: GPT-6.1 Sol high 93 s / $0.37 vs 2× GPT-6.1 Terra high 17 s / $0.18; the Terra pair caught 2 bugs Sol missed; Sol's only edge was running tests to prove bugs. Setup: 2 Terra reviewers in parallel + a third Terra that has them debate and settles final findings.
+- Our own (a production project, 2026-11-07): in round 2, Codex Sol high and Argon high reviewed the same diff independently; they overlapped on 3 findings and each found bugs the other missed (Sol 4, Argon 6).
+New design:
+- review_frozen default = panel: 2× codex gpt-6.1-terra high (read-only, parallel) + 1× agy gemini-4-argon-high (third vendor for diversity, with the verified command from reference-agy-cli.md), then a judge: codex gpt-6.1-terra high that receives all findings, makes them debate/dedupe, verifies each against the code, and outputs final findings with CONFIRMED/PLAUSIBLE/REJECTED.
+- Sol high becomes the escalation rung: used only when a finding is disputed by the judge or must be proven by running tests (Sol may run tests; others read-only).
+- Cross-vendor invariant stays: if Codex built, panel = 2× Argon? No: if the builder is Codex, use Opus high + Argon high as reviewers and Opus high as judge. Implement pickReviewer accordingly.
+- Verify `codex exec -m gpt-6.1-terra --help`-level facts (model id accepted: run one tiny read-only call `codex exec -m gpt-6.1-terra -c model_reasoning_effort=high --sandbox read-only "say ok"`), and measure time/cost fields it prints.
+Implement: lanes.ts panel lanes + judge lane; route.ts emits `reviewers: [...]` and `judge`; a new `review-panel.sh <brief> <repo> <run-id>` that runs the 3 reviewers in parallel, collects outputs, runs the judge, writes final.md, and logs every call (start/done/cost/duration) in the ledger; update dispatch.sh docs. Update SKILL.md tables (Task classes, Lane catalogue, Common mistakes) and add a "Review panel" section with the evidence and a note: "re-evaluate after 10 panels using the ledger (findings confirmed per $ and per minute, Sol vs panel)".
+Proof: route.ts on a sample feature brief shows the panel; `bash -n review-panel.sh`; one real panel run on a tiny diff in a scratch git repo you create under the scratchpad (delete after) — show final.md and ledger rows. Do not run against the production project repo.
+Constraints: no secrets in output; nothing outside the skill dir except the scratch repo and reading. No sudo, no git push.
+Output: files changed, sample outputs, measured Terra time/cost, what is unverified.

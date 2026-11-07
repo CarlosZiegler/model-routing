@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 960 428" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="one-task-title one-task-desc" id="one-task-root">
+        <title id="one-task-title">One task, start to finish</title>
+        <desc id="one-task-desc">The coordinator writes a brief, TypeSafe Jev classifies it, route.ts picks the lane, a headless worker builds in its own git worktree, a review panel from other vendors and a judge check the diff, and the coordinator verifies with tests and the real app before merging; a failed check loops back to routing, and the pool ledger records every step.</desc>
+        <defs>
+      <style>@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500;600&amp;family=Noto+Serif:ital@0;1&amp;family=Noto+Sans+KR:wght@400;500;600&amp;family=Noto+Serif+KR:wght@400&amp;family=Noto+Sans+TC:wght@400;500;600&amp;family=Noto+Serif+TC:wght@400&amp;display=swap');
+      #one-task-root { --color-paper: #f5f5f5; --color-ink: #2d3142; --color-muted: #4f5d75; --color-accent: #eb6c36; --font-sans: 'Geist', 'Helvetica Neue', Arial, sans-serif; --font-serif: 'Instrument Serif', Georgia, serif; --font-mono: 'Geist Mono', ui-monospace, Menlo, Consolas, monospace; }
+      #one-task-root { font-family: var(--font-sans); color: var(--color-ink); }
+      #one-task-root .diagram-container { width: 100%; overflow-x: auto; }
+      #one-task-root .diagram-container { overflow-x: visible; }</style>
+          <marker id="one-task-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#4f5d75"/></marker>
+          <marker id="one-task-arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#eb6c36"/></marker>
+          <marker id="one-task-arrow-link" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2e5aa8"/></marker>
+        </defs>
+
+        <rect width="100%" height="100%" fill="#f5f5f5"/>
+
+        <!-- Connectors first (z-order: lines behind nodes) -->
+        <line x1="228" y1="76" x2="275" y2="76" stroke="#2e5aa8" stroke-width="1.2" marker-end="url(#one-task-arrow-link)"/>
+        <line x1="456" y1="76" x2="503" y2="76" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#one-task-arrow)"/>
+        <line x1="684" y1="76" x2="731" y2="76" stroke="#eb6c36" stroke-width="1.2" marker-end="url(#one-task-arrow-accent)"/>
+        <path d="M 822,112 V 140 Q 822,148 814,148 H 146 Q 138,148 138,156 V 183" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#one-task-arrow)"/>
+        <path d="M 594,184 V 156 a 8,8 0 0,1 0,-16 V 113" fill="none" stroke="#4f5d75" stroke-width="1" stroke-dasharray="5,4" marker-end="url(#one-task-arrow)"/>
+        <line x1="228" y1="220" x2="275" y2="220" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#one-task-arrow)"/>
+        <line x1="456" y1="220" x2="503" y2="220" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#one-task-arrow)"/>
+        <line x1="684" y1="220" x2="731" y2="220" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#one-task-arrow)"/>
+
+        <!-- Arrow labels (opaque masks, 6px+ gap from the stroke) -->
+        <rect x="450" y="130" width="60" height="12" rx="2" fill="#f5f5f5"/>
+        <text x="480" y="139" fill="#7a8399" font-size="8" font-family="'Geist Mono', ui-monospace, Menlo, Consolas, monospace" text-anchor="middle" letter-spacing="0.06em">CODE DIFF</text>
+        <rect x="604" y="164" width="84" height="12" rx="2" fill="#f5f5f5"/>
+        <text x="646" y="173" fill="#7a8399" font-size="8" font-family="'Geist Mono', ui-monospace, Menlo, Consolas, monospace" text-anchor="middle" letter-spacing="0.06em">IF FAIL: RETRY</text>
+
+        <!-- 01 Brief (input) -->
+        <rect x="48" y="40" width="180" height="72" rx="6" fill="#f5f5f5"/>
+        <rect x="48" y="40" width="180" height="72" rx="6" fill="#4f5d75" fill-opacity="0.10" stroke="#7a8399" stroke-width="1"/>
+        <rect x="56" y="48" width="92" height="12" rx="2" fill="none" stroke="#7a8399" stroke-opacity="0.6" stroke-width="0.8"/>
+        <text x="102" y="57" fill="#4f5d75" font-size="7" font-family="'Geist Mono', ui-monospace, Menlo, Consolas, monospace" text-anchor="middle" letter-spacing="0.08em">01 · COORDINATOR</text>
+        <text x="138" y="82" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', 'Helvetica Neue', Arial, sans-serif" text-anchor="middle">Write the brief</text>
+        <text x="138" y="97" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, Menlo, Consolas, monospace" text-anchor="middle">goal · scope · proof</text>
+
+        <!-- 02 Jev (external API) -->
+        <rect x="276" y="40" width="180" height="72" rx="6" fill="#f5f5f5"/>
+        <rect x="276" y="40" width="180" height="72" rx="6" fill="#2d3142" fill-opacity="0.03" stroke="#2d3142" stroke-opacity="0.30" stroke-width="1"/>
+        <rect x="284" y="48" width="76" height="12" rx="2" fill="none" stroke="#2d3142" stroke-opacity="0.30" stroke-width="0.8"/>
+        <text x="322" y="57" fill="#2d3142" fill-opacity="0.7" font-size="7" font-family="'Geist Mono', ui-monospace, Menlo, Consolas, monospace" text-anchor="middle" letter-spacing="0.08em">02 · TYPESAFE</text>
+        <text x="366" y="78" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', 'Helvetica Neue', Arial, sans-serif" text-anchor="middle">Classify the task</text>
+        <text x="366" y="92" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, Menlo, Consolas, monospace" text-anchor="middle">Jev · 0.2–0.6 s</text>
+        <text x="366" y="103" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, Menlo, Consolas, monospace" text-anchor="middle">typed probabilities</text>
+
+        <!-- 03 Pick the lane (FOCAL) -->
+        <rect x="504" y="40" width="180" height="72" rx="6" fill="#f5f5f5"/>
+        <rect x="504" y="40" width="180" height="72" rx="6" fill="#eb6c36" fill-opacity="0.08" stroke="#eb6c36" stroke-width="1.2"/>
+        <rect x="512" y="48" width="76" height="12" rx="2" fill="none" stroke="#eb6c36" stroke-opacity="0.6" stroke-width="0.8"/>
+        <text x="550" y="57" fill="#eb6c36" font-size="7" font-weight="600" font-family="'Geist Mono', ui-monospace, Menlo, Consolas, monospace" text-anchor="middle" letter-spacing="0.08em">03 · ROUTE.TS</text>
+        <text x="594" y="78" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', 'Helvetica Neue', Arial, sans-serif" text-anchor="middle">Pick the lane</text>
+        <text x="594" y="92" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, Menlo, Consolas, monospace" text-anchor="middle">risk · ambiguity · context</text>
+        <text x="594" y="103" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, Menlo, Consolas, monospace" text-anchor="middle">secrets · pool capacity</text>
+
+        <!-- 04 Worker -->
+        <rect x="732" y="40" width="180" height="72" rx="6" fill="#f5f5f5"/>
+        <rect x="732" y="40" width="180" height="72" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+        <rect x="740" y="48" width="68" height="12" rx="2" fill="none" stroke="#2d3142" stroke-opacity="0.40" stroke-width="0.8"/>
+        <text x="774" y="57" fill="#2d3142" fill-opacity="0.8" font-size="7" font-family="'Geist Mono', ui-monospace, Menlo, Consolas, monospace" text-anchor="middle" letter-spacing="0.08em">04 · WORKER</text>
+        <text x="822" y="78" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', 'Helvetica Neue', Arial, sans-serif" text-anchor="middle">Worker builds it</text>
+        <text x="822" y="92" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, Menlo, Consolas, monospace" text-anchor="middle">headless CLI, no chat</text>
+        <text x="822" y="103" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, Menlo, Consolas, monospace" text-anchor="middle">in its own git worktree</text>
+
+        <!-- 05 Review panel -->
+        <rect x="48" y="184" width="180" height="72" rx="6" fill="#f5f5f5"/>
+        <rect x="48" y="184" width="180" height="72" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+        <rect x="56" y="192" width="92" height="12" rx="2" fill="none" stroke="#2d3142" stroke-opacity="0.40" stroke-width="0.8"/>
+        <text x="102" y="201" fill="#2d3142" fill-opacity="0.8" font-size="7" font-family="'Geist Mono', ui-monospace, Menlo, Consolas, monospace" text-anchor="middle" letter-spacing="0.08em">05 · 3 REVIEWERS</text>
+        <text x="138" y="222" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', 'Helvetica Neue', Arial, sans-serif" text-anchor="middle">Review panel</text>
+        <text x="138" y="236" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, Menlo, Consolas, monospace" text-anchor="middle">other vendors · parallel</text>
+        <text x="138" y="247" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, Menlo, Consolas, monospace" text-anchor="middle">read-only</text>
+
+        <!-- 06 Judge -->
+        <rect x="276" y="184" width="180" height="72" rx="6" fill="#f5f5f5"/>
+        <rect x="276" y="184" width="180" height="72" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+        <rect x="284" y="192" width="64" height="12" rx="2" fill="none" stroke="#2d3142" stroke-opacity="0.40" stroke-width="0.8"/>
+        <text x="316" y="201" fill="#2d3142" fill-opacity="0.8" font-size="7" font-family="'Geist Mono', ui-monospace, Menlo, Consolas, monospace" text-anchor="middle" letter-spacing="0.08em">06 · JUDGE</text>
+        <text x="366" y="222" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', 'Helvetica Neue', Arial, sans-serif" text-anchor="middle">Judge the findings</text>
+        <text x="366" y="236" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, Menlo, Consolas, monospace" text-anchor="middle">debate · dedupe · verify</text>
+        <text x="366" y="247" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, Menlo, Consolas, monospace" text-anchor="middle">labels each finding</text>
+
+        <!-- 07 Verify -->
+        <rect x="504" y="184" width="180" height="72" rx="6" fill="#f5f5f5"/>
+        <rect x="504" y="184" width="180" height="72" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+        <rect x="512" y="192" width="92" height="12" rx="2" fill="none" stroke="#2d3142" stroke-opacity="0.40" stroke-width="0.8"/>
+        <text x="558" y="201" fill="#2d3142" fill-opacity="0.8" font-size="7" font-family="'Geist Mono', ui-monospace, Menlo, Consolas, monospace" text-anchor="middle" letter-spacing="0.08em">07 · COORDINATOR</text>
+        <text x="594" y="226" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', 'Helvetica Neue', Arial, sans-serif" text-anchor="middle">Verify for real</text>
+        <text x="594" y="241" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, Menlo, Consolas, monospace" text-anchor="middle">tests + the real app</text>
+
+        <!-- 08 Merge -->
+        <rect x="732" y="184" width="180" height="72" rx="6" fill="#f5f5f5"/>
+        <rect x="732" y="184" width="180" height="72" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+        <rect x="740" y="192" width="92" height="12" rx="2" fill="none" stroke="#2d3142" stroke-opacity="0.40" stroke-width="0.8"/>
+        <text x="786" y="201" fill="#2d3142" fill-opacity="0.8" font-size="7" font-family="'Geist Mono', ui-monospace, Menlo, Consolas, monospace" text-anchor="middle" letter-spacing="0.08em">08 · COORDINATOR</text>
+        <text x="822" y="226" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', 'Helvetica Neue', Arial, sans-serif" text-anchor="middle">Merge</text>
+        <text x="822" y="241" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, Menlo, Consolas, monospace" text-anchor="middle">only after proof</text>
+
+        <!-- Pool ledger (store, spans every step) -->
+        <rect x="48" y="296" width="864" height="44" rx="6" fill="#f5f5f5"/>
+        <rect x="48" y="296" width="864" height="44" rx="6" fill="#2d3142" fill-opacity="0.05" stroke="#4f5d75" stroke-width="1"/>
+        <rect x="56" y="304" width="88" height="12" rx="2" fill="none" stroke="#4f5d75" stroke-opacity="0.5" stroke-width="0.8"/>
+        <text x="100" y="313" fill="#4f5d75" font-size="7" font-family="'Geist Mono', ui-monospace, Menlo, Consolas, monospace" text-anchor="middle" letter-spacing="0.08em">LOGS EVERY STEP</text>
+        <text x="480" y="314" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', 'Helvetica Neue', Arial, sans-serif" text-anchor="middle">Pool ledger</text>
+        <text x="480" y="330" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, Menlo, Consolas, monospace" text-anchor="middle">pool-ledger.tsv · a row when each step starts and ends: tokens, cost, verdict</text>
+
+        <!-- Legend strip -->
+        <line x1="48" y1="368" x2="912" y2="368" stroke="#2d3142" stroke-opacity="0.10" stroke-width="0.8"/>
+        <text x="48" y="388" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, Menlo, Consolas, monospace" letter-spacing="0.14em">LEGEND</text>
+        <rect x="120" y="396" width="16" height="10" rx="2" fill="#4f5d75" fill-opacity="0.10" stroke="#7a8399" stroke-width="1"/>
+        <text x="144" y="405" fill="#4f5d75" font-size="8.5" font-family="'Geist', 'Helvetica Neue', Arial, sans-serif">your brief</text>
+        <rect x="216" y="396" width="16" height="10" rx="2" fill="#2d3142" fill-opacity="0.03" stroke="#2d3142" stroke-opacity="0.30" stroke-width="1"/>
+        <text x="240" y="405" fill="#4f5d75" font-size="8.5" font-family="'Geist', 'Helvetica Neue', Arial, sans-serif">outside API</text>
+        <rect x="312" y="396" width="16" height="10" rx="2" fill="#eb6c36" fill-opacity="0.08" stroke="#eb6c36" stroke-width="1"/>
+        <text x="336" y="405" fill="#4f5d75" font-size="8.5" font-family="'Geist', 'Helvetica Neue', Arial, sans-serif">the decision</text>
+        <rect x="408" y="396" width="16" height="10" rx="2" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+        <text x="432" y="405" fill="#4f5d75" font-size="8.5" font-family="'Geist', 'Helvetica Neue', Arial, sans-serif">a step</text>
+        <rect x="504" y="396" width="16" height="10" rx="2" fill="#2d3142" fill-opacity="0.05" stroke="#4f5d75" stroke-width="1"/>
+        <text x="528" y="405" fill="#4f5d75" font-size="8.5" font-family="'Geist', 'Helvetica Neue', Arial, sans-serif">the log</text>
+        <line x1="600" y1="401" x2="615" y2="401" stroke="#2e5aa8" stroke-width="1.2" marker-end="url(#one-task-arrow-link)"/>
+        <text x="624" y="405" fill="#4f5d75" font-size="8.5" font-family="'Geist', 'Helvetica Neue', Arial, sans-serif">API call</text>
+        <line x1="696" y1="401" x2="711" y2="401" stroke="#eb6c36" stroke-width="1.2" marker-end="url(#one-task-arrow-accent)"/>
+        <text x="720" y="405" fill="#4f5d75" font-size="8.5" font-family="'Geist', 'Helvetica Neue', Arial, sans-serif">chosen lane</text>
+        <line x1="792" y1="401" x2="811" y2="401" stroke="#4f5d75" stroke-width="1" stroke-dasharray="5,4" marker-end="url(#one-task-arrow)"/>
+        <text x="820" y="405" fill="#4f5d75" font-size="8.5" font-family="'Geist', 'Helvetica Neue', Arial, sans-serif">retry path</text>
+      </svg>

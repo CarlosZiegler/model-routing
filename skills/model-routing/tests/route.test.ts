@@ -138,3 +138,16 @@ test("Codex pool cooling, Claude built: Terra slots move to Argon, judge has no 
   assert.equal(p.judge, null, "Opus judge would be same-vendor; the coordinator judges");
   assert.ok(p.reasons.some((r) => /one vendor only/.test(r)));
 });
+
+test("a fix brief that quotes a review panel is a build, not a review", async () => {
+  const { decide, asksForEdits } = await import("../route.ts");
+  const brief = "Continue T43. Panel: final.md (F3 proven by Sol). Fix, red test first, minimal diff. Proof: tests green after git merge main.";
+  assert.equal(asksForEdits(brief), true);
+  assert.equal(asksForEdits("Read-only review of repo. Do not edit files. Panel findings."), false);
+  const j = liveJudgment();
+  j.kind = { ...j.kind, top: "review_frozen", confidence: 0.9 };
+  j.touches_secrets.p = 0.05;
+  const { lane } = decide({ judgment: j, jevError: null, brief, pools: pools(), ctx });
+  assert.notEqual(lane.id, "review_panel");
+  assert.match(lane.reasons[0], /overridden to refactor_multifile/);
+});

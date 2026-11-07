@@ -276,6 +276,11 @@ function fallbackLane(brief: string, pools: PoolStatus, ctx: CommandContext, why
 }
 
 // Jev judgment (or error) → lane. Exported for tests (tests/route.test.ts).
+export function asksForEdits(brief: string): boolean {
+  if (/\b(read-only|do not edit|don't edit|no edits)\b/i.test(brief)) return false;
+  return /(^|\n)\s*(fix|implement|refactor|build|add|change)\b|red test first|\bcommit\b|git merge main/i.test(brief);
+}
+
 export function decide(input: {
   judgment: JevJudgment | null;
   jevError: string | null;
@@ -296,6 +301,15 @@ export function decide(input: {
     return { lane, source: "fallback", riskUnsure: false };
   }
   const riskUnsure = noulConfidence(judgment.risk.p) < CONFIDENCE_FLOOR;
+  // A brief that asks for edits is never a read-only review, whatever words it quotes from the
+  // review it answers (2026-11-07: a "fix the panel's findings" brief went to review_frozen and
+  // launched a panel instead of a worker).
+  if (judgment.kind.top === "review_frozen" && asksForEdits(brief)) {
+    const j = { ...judgment, kind: { ...judgment.kind, top: "refactor_multifile" as const } };
+    const lane = pickLane(j, pools, ctx, { riskUnsure, builder });
+    lane.reasons.unshift("brief asks for edits (fix / red test / commit) and does not say read-only → review_frozen overridden to refactor_multifile");
+    return { lane, source: "jev", riskUnsure };
+  }
   return { lane: pickLane(judgment, pools, ctx, { riskUnsure, builder }), source: "jev", riskUnsure };
 }
 

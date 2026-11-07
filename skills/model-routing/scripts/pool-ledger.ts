@@ -238,7 +238,32 @@ export interface ParsedOutput {
   detail: string;
 }
 
-const LIMIT_RE = /usage limit|rate[ _-]?limit|quota|RESOURCE_EXHAUSTED|limit reached|429|too many requests/i;
+// "You've hit your 5-hour limit · resets 1:30pm (Europe/Berlin)" (Claude Code, 2026-11-07) was missed
+// by the first version of this regex, so the seat was logged as `error` and never cooled.
+const LIMIT_RE = /usage limit|rate[ _-]?limit|quota|RESOURCE_EXHAUSTED|limit reached|hit your [^.\n]*limit|\d+-hour limit|weekly limit|429|too many requests/i;
+
+// "resets 1:30pm (Europe/Berlin)" → next such wall-clock time in that zone, as ISO.
+export function parseResetsText(text: string, now = new Date()): string | null {
+  const m = text.match(/resets\s+(\d{1,2})(?::(\d{2}))?\s*(am|pm)\s*\(([^)]+)\)/i);
+  if (!m) return null;
+  let h = Number(m[1]) % 12;
+  if (m[3].toLowerCase() === "pm") h += 12;
+  const min = Number(m[2] ?? 0);
+  const tz = m[4];
+  try {
+    const parts = Object.fromEntries(
+      new Intl.DateTimeFormat("en-CA", { timeZone: tz, year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit", hourCycle: "h23" })
+        .formatToParts(now).map((p) => [p.type, p.value]),
+    );
+    const zoneNowAsUtc = Date.UTC(+parts.year, +parts.month - 1, +parts.day, +parts.hour, +parts.minute);
+    const offset = zoneNowAsUtc - Math.floor(now.getTime() / 60000) * 60000;
+    let target = Date.UTC(+parts.year, +parts.month - 1, +parts.day, h, min) - offset;
+    if (target <= now.getTime()) target += 24 * 3600 * 1000;
+    return new Date(target).toISOString();
+  } catch {
+    return null;
+  }
+}
 
 function deepFind(obj: unknown, keys: string[]): unknown {
   if (!obj || typeof obj !== "object") return undefined;
@@ -310,6 +335,7 @@ export function parseOutput(vendor: string, stdout: string, stderr: string, exit
   }
   if (isError) {
     out.outcome = LIMIT_RE.test(errText + " " + stderr.slice(-4000)) ? "limit" : "error";
+    if (out.outcome === "limit" && !out.resets_at) out.resets_at = parseResetsText(errText + " " + stderr.slice(-4000));
     out.detail = (errText.trim() || stderr.trim().split("\n").slice(-1)[0] || `exit ${exitCode}`).slice(0, 200);
   }
   return out;

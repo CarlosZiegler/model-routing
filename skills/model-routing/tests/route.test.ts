@@ -151,3 +151,9 @@ test("a fix brief that quotes a review panel is a build, not a review", async ()
   assert.notEqual(lane.id, "review_panel");
   assert.match(lane.reasons[0], /overridden to refactor_multifile/);
 });
+
+test("the keyword fallback also turns an edit brief away from review", async () => {
+  const { classifyFallback } = await import("../scripts/router-fallback.ts");
+  const fb = classifyFallback("Panel result: final.md. Review findings F1-F3. Fix each, red test first. Proof: tests green after git merge main.");
+  assert.notEqual(fb.kind, "review_frozen");
+});

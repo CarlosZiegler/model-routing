@@ -23,7 +23,7 @@ import {
   type BuilderVendor, type CommandContext, type Kind, type Lane, type LaneId, type Panel, type PoolStatus,
 } from "./scripts/lanes.ts";
 import { findLedger, loadPools } from "./scripts/pool-ledger.ts";
-import { classifyFallback, containsSecretValue, fallbackBaseLane } from "./scripts/router-fallback.ts";
+import { classifyFallback, containsSecretValue, fallbackBaseLane, asksForEdits } from "./scripts/router-fallback.ts";
 
 const JEV_URL = "https://api.typesafe.ai/v1/systemone";
 const JEV_MODEL = "jev-latest";
@@ -276,10 +276,7 @@ function fallbackLane(brief: string, pools: PoolStatus, ctx: CommandContext, why
 }
 
 // Jev judgment (or error) → lane. Exported for tests (tests/route.test.ts).
-export function asksForEdits(brief: string): boolean {
-  if (/\b(read-only|do not edit|don't edit|no edits)\b/i.test(brief)) return false;
-  return /(^|\n)\s*(fix|implement|refactor|build|add|change)\b|red test first|\bcommit\b|git merge main/i.test(brief);
-}
+export { asksForEdits };
 
 export function decide(input: {
   judgment: JevJudgment | null;

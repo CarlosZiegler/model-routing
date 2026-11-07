@@ -79,6 +79,11 @@ export interface FallbackJudgment {
   needs_recent_facts: boolean;
 }
 
+export function asksForEdits(brief: string): boolean {
+  if (/\b(read-only|do not edit|don't edit|no edits)\b/i.test(brief)) return false;
+  return /(^|\n)\s*(fix|implement|refactor|build|add|change)\b|red test first|\bcommit\b|git merge main/i.test(brief);
+}
+
 export function classifyFallback(brief: string): FallbackJudgment {
   const scores: Partial<Record<Kind, number>> = {};
   for (const [kind, patterns] of Object.entries(KIND_PATTERNS) as [Kind, Pattern[]][]) {
@@ -87,8 +92,11 @@ export function classifyFallback(brief: string): FallbackJudgment {
   }
   const ranked = (Object.entries(scores) as [Kind, number][]).sort((a, b) => b[1] - a[1]);
   const clear = ranked.length > 0 && (ranked.length === 1 || ranked[0][1] > ranked[1][1]);
+  let kind: Kind | null = clear ? ranked[0][0] : null;
+  // A brief that asks for edits is never a read-only review (see asksForEdits).
+  if (kind === "review_frozen" && asksForEdits(brief)) kind = "refactor_multifile";
   return {
-    kind: clear ? ranked[0][0] : null,
+    kind,
     scores,
     risk: RISK_RE.test(brief),
     touches_secrets: SECRETS_RE.test(brief.replace(NEGATED_SECRETS_RE, " ")) || containsSecretValue(brief),
